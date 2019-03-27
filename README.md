@@ -34,7 +34,7 @@ To add a product into the database, send a `post` request to `http://localhost:3
 
 ```json
 {
-	"productName": "Wood Mouse Pad",
+   "productName": "Wood Mouse Pad",
    "description": "Comfortable maple wood made mouse pad",
    "quantity": 70
 }
