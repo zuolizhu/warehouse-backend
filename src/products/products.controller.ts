@@ -8,27 +8,27 @@ export class ProductsController {
     constructor(private readonly productsService: ProductsService) {}
 
     @Get()
-    findAll(): Product[] {
+    findAll(): Promise<Product[]> {
         return this.productsService.findAll();
     }
 
     @Get(':id')
-    findOne(@Param('id') id): Product {
+    findOne(@Param('id') id): Promise<Product> {
         return this.productsService.findOne(id);
     }
 
     @Post()
-    addProduct(@Body() addProductDto: AddProductDto): string {
-        return `Product Name: ${addProductDto.productName} Description: ${addProductDto.description}`;
+    addProduct(@Body() addProductDto: AddProductDto): Promise<Product> {
+        return this.productsService.addProduct(addProductDto);
     }
 
     @Put(':id')
-    update(@Body() updateProductDto: AddProductDto, @Param('id') id): string {
-        return `Updated ${id}, Product Name: ${updateProductDto.productName}`;
+    updateProduct(@Body() updateProductDto: AddProductDto, @Param('id') id): Promise<Product>{
+        return this.productsService.updateProduct(id, updateProductDto);
     }
 
     @Delete(':id')
-    remove(@Param('id') id): string {
-        return `Removed ${id}`;
+    removeProduct(@Param('id') id): Promise<Product> {
+        return this.productsService.removeProduct(id);
     }
 }
