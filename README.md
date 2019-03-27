@@ -46,7 +46,7 @@ To update a product information, for example, to update the quantity of the pill
 
 ```json
 {
-	"quantity": 77
+   "quantity": 77
 }
 ```
 
